@@ -1,0 +1,40 @@
+
+{% extends "./layout.html" %}
+{% block content %}
+
+      <p>
+        <p>
+        Task View
+
+        <hr>
+
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ task.task_text }}</h5>
+              <small>{{ task.pub_date }}</small>
+            </div>
+            <p class="mb-1"></p>
+            <small>Created by {{ task.owner.username }}</small>
+          </a>
+        </div>
+
+    </div>
+    <div class="col-4">
+      <h2>To-Do-List</h2>
+      <p>
+        An app made for keeping track of your tasks! Using To-Do-List may increase your productivity.
+        Start by creating a personal task to learn the basics.
+      </p>
+        <p>
+          {% if session.user_id %}
+        <a href="/completed" class="btn-secondary btn-lg active" role="button" aria-pressed="true">View Completed Tasks</a>
+          {% endif %}
+          <hr>
+        <a href="https://github.com/VoxBorealis/">GitHub</a>
+        <hr>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "./layout.html" %}
+{% block content %}
+<hr>
+        
+        A quick and easy way to keep track of your tasks.
+
+      {% if request.session.user %}
+      <p>Welcome back, <b>{{ request.session.user.username }}</b></p>
+      <p>You are working on personal tasks</p>
+      <p>Create a new task</p>
+      <form action="/new_task/" method="POST">
+        {% csrf_token %}
+        {{ task_form.as_p }}
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+
+      <ul>
+          {% for task in tasks %}
+            <div class="list-group">
+              <a href="/task/{{ task.id }}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ task.task_text }}</h5>
+                  <small>{{ task.pub_date }}</small>
+                </div>
+                <p class="mb-1"></p>
+                <small></small>
+              </a>
+            </div>
+    
+            {% endfor %}
+        </ul>
+
+      
+
+      {% else %}
+      <p>
+        Start by logging in!
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{ login_form.as_p }}
+          <button type="submit" class="btn btn-success">Login</button>
+        </form>
+          <hr>
+          <medium class="text-muted">
+              <a href="/register">Click here to register!</a>
+          </medium>
+        {% endif %}
+    </div>
+    <div class="col-4">
+      <h2>To-Do-List</h2>
+      <p>
+        An app made for keeping track of your tasks! Using To-Do-List may increase your productivity.
+        Start by creating a personal task to learn the basics.
+      </p>
+          {% if request.session.user %}
+        <hr>
+          Search for ID of task using a keyword!
+          <form action="/count_tasks/" method="POST">
+            {% csrf_token %}
+            {{ search_form.as_p }}
+          <button type="submit" class="btn btn-success">Search</button>
+          </form>
+            {% if request.session.search %}
+              results:
+              <ul>
+              {% for r in request.session.search %}
+                <li> {{ r }} </li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endif %}
+          <hr>
+          <a href="https://github.com/VoxBorealis/">GitHub</a>
+          <hr>
+
+
+    </div>
+  </div>
+</div>
+{% endblock %}

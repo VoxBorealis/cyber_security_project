@@ -1,0 +1,24 @@
+{% extends "./layout.html" %}
+{% block content %}
+<hr>
+<p>
+    <p>
+    <h3>Register</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <button type="submit" class="btn btn-success">Register</button>
+        <hr>
+        <medium class="text-muted">
+            Already have an account? <a href="/">Log In</a>
+        </medium>
+    </form>
+</div>
+<div class="col-4">
+    <h2>To-Do-List</h2>
+    <p>
+      An app made for keeping track of your tasks! Using To-Do-List may increase your productivity.
+      Start by creating a personal task to learn the basics.
+    </p>  
+</div>
+{% endblock %}
