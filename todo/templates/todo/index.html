@@ -54,7 +54,7 @@
           {% if request.session.user %}
         <hr>
           Search for ID of task using a keyword!
-          <form action="/count_tasks/" method="POST">
+          <form action="/search_tasks/" method="POST">
             {% csrf_token %}
             {{ search_form.as_p }}
           <button type="submit" class="btn btn-success">Search</button>

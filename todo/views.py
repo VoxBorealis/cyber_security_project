@@ -48,7 +48,7 @@ def new_task(request):
             form.save()
         return redirect("/")
 
-def count_tasks(request):
+def search_tasks(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
         query = (form['query'].value())
