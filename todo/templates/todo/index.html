@@ -11,9 +11,9 @@
       <form action="/new_task/" method="POST">
         {% csrf_token %}
         {{ task_form.as_p }}
+        <p>Your id of user object is: {{ request.session.user.id }}</p>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-
       <ul>
           {% for task in tasks %}
             <div class="list-group">
@@ -36,7 +36,6 @@
       <p>
         Start by logging in!
         <form action="" method="POST">
-          {% csrf_token %}
           {{ login_form.as_p }}
           <button type="submit" class="btn btn-success">Login</button>
         </form>

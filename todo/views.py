@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
 from .forms import RegisterForm, SearchForm, TaskForm
 from .models import User, Task
 from django.db import connection
 
-# Create your views here.
+@csrf_exempt
 def index(request):
     if request.method == "POST":
         username = request.POST.get('username')
