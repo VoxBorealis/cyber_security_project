@@ -17,7 +17,7 @@ python manage.py migrate
 The application should now be running at http://127.0.0.1:8000/
 
 
-##FLAW 1: SQL Injection 
+## FLAW 1: SQL Injection 
 
 https://github.com/VoxBorealis/cyber_security_project/blob/main/todo/views.py#L53
 
@@ -30,7 +30,7 @@ which would return the password of any user (such as an admin account).
 There are multiple ways to fix this. The obvious fix is, that instead of using raw SQL, we would use the Django model functions, like I've used in other views. If, however, we wanted to use raw SQL, we need to remove the quotes around the %s placeholders. This will prevent the user from formatting the input such that the server reads it as part of the query.
 
 
-##FLAW 2: CSRF
+## FLAW 2: CSRF
 
 https://github.com/VoxBorealis/cyber_security_project/blob/main/todo/views.py#L8
 
@@ -42,7 +42,7 @@ An example of this can be found at https://github.com/VoxBorealis/cyber_security
 
 
 
-##FLAW 3: Broken Access Control
+## FLAW 3: Broken Access Control
 
 https://github.com/VoxBorealis/cyber_security_project/blob/main/todo/views.py#L34
 
@@ -55,7 +55,7 @@ The fix for this is quite simple, if the task owner's id is not the same as the 
 
 
 
-##FLAW 4: Cryptographic Failures
+## FLAW 4: Cryptographic Failures
 
 https://github.com/VoxBorealis/cyber_security_project/blob/main/todo/views.py#L65
 
@@ -66,7 +66,7 @@ the database. Hashing algorithms are one-way programs, which means that even if 
 
 
 
-##FLAW 5: Identification and Authentication Failures
+## FLAW 5: Identification and Authentication Failures
 
 The OWASP description of Identification and Authentication Failures is really insightful and worth a read. My program has many of the flaws listed there
 but for this example, I'll choose "Permits default, weak, or well-known passwords, such as "Password1" or "admin/admin"".
