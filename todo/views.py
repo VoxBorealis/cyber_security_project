@@ -33,6 +33,8 @@ def index(request):
 
 def task(request, id):
     task = Task.objects.get(pk = id)
+    #if task.owner.id != request.session['user']['id']:
+    #    raise PermissionDenied()
     return render(request, 'todo/task.html', {'task': task})
 
 def is_logged_in(request):
