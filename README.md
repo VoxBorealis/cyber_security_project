@@ -1,6 +1,6 @@
 # Cyber Security Base 2022 - Course Project I
 
-Small project created as a part of https://cybersecuritybase.mooc.fi/. Assignment was to create a web app with 5 flaws from [OWASP Top 10 Security Risks](https://owasp.org/www-project-top-ten/)
+Small project created as a part of https://cybersecuritybase.mooc.fi/. The assignment was to create a web app with 5 flaws from [OWASP Top 10 Security Risks](https://owasp.org/www-project-top-ten/)
 
 To run the project, clone the files and run the following command (you may need to write 'python3' insted of 'python':
 
