@@ -1,5 +1,4 @@
 from django.db import models
-from sqlalchemy import true
 
 
 # Create your models here.
@@ -10,5 +9,5 @@ class User(models.Model):
 class Task(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     task_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date added', auto_now_add=true)
+    pub_date = models.DateTimeField('date added', auto_now_add=True)
     
